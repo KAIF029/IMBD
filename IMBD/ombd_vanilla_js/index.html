@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>OMDb search - MyIMDB Clone</title>
+	<!-- Import free Google fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:700&text=OMDb&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,700&display=swap">
+	<!-- Fontawesome BootstrapCDN -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css" rel="stylesheet">
+	<!-- My Stylesheet -->
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+	<!-- The main wrapper for all content -->
+	<div id="main" class="main">
+		<nav>
+			<div class="logo">
+				<span>OMDb</span>
+			</div>
+
+			<div class="navbar">
+
+				<div class="nav-top">
+					<form class="search-form" action="">
+						<input type="search" name="search-box" id="search-box" placeholder="Find Movies, TV Shows and more...">
+						<select name="search-type" id="search-type">
+							<option value="all">All</option>
+							<option value="titles">Titles</option>
+							<option value="episode">TV Episodes</option>
+							<option value="series">Series</option>
+							<option value="imdbs">IMDb IDs</option>
+							<option value="advsearch">AdvancedSearch>></option>
+						</select>
+						<button type="submit" id="search-start">
+							<i class="fas fa-search"></i>
+						</button>
+					</form> <!-- search-form -->
+
+					<div class="nav-top-other">
+						<span>OMDbPro</span>
+						<a href="#">HELP</a>
+						<div class="socials">
+							<a href="#"><i class="fab fa-facebook-f"></i></a>
+							<a href="#"><i class="fab fa-instagram"></i></a>
+							<a href="#"><i class="fab fa-twitch"></i></a>
+							<a href="#"><i class="fab fa-twitter"></i></a>
+							<a href="#"><i class="fab fa-youtube"></i></a>
+						</div> <!-- socials -->
+					</div> <!-- nav-top-other -->
+				</div> <!-- nav-top -->
+
+				<div class="nav-btm">
+					<div class="nav-drops">
+						<div class="v-spacer">.</div>
+						<div id="movies-tv-episodes" class="nav-drop nav-drop-1">
+							<button class="dropbtn">Movies, TV & Episodes
+								<i class="fa fa-caret-down"></i>
+							</button>
+							<div class="dropdown drop-1">
+								<div class="dropdown-text">
+									<h5>Movies</h5>
+									<ul>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+									</ul>
+									<h5>TV Show</h5>
+									<ul>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+									</ul>
+								</div>
+								<div class="dropdown-text">
+										<h5>Show</h5>
+										<ul>
+											<li></li>
+											<li></li>
+											<li></li>
+											<li></li>
+										</ul>
+								</div>
+								<div class="dropdown-img" id="random-movie">
+									<img src="" alt="" id="random-movie-img">
+									<div id="random-movie-footer">
+										<a href="#" id="random-movie-title"></a>
+										<a href="#" id="random-movie-rating"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="v-spacer">.</div>
+						<div id="celebs-events-photos" class="nav-drop nav-drop-2">
+							<button class="dropbtn">Celebs, Events & Photos
+								<i class="fa fa-caret-down"></i>
+							</button>
+							<div class="dropdown drop-2">
+								<h5>Celebs</h5>
+								<h5>Events</h5>
+								<h5>Photos</h5>
+							</div>
+						</div>
+						<div class="v-spacer">.</div>
+						<div id="news-community" class="nav-drop nav-drop-3">
+							<button class="dropbtn">News & Community
+								<i class="fa fa-caret-down"></i>
+							</button>
+							<div class="dropdown drop-3">
+								<h5>News</h5>
+								<h5>Community</h5>
+							</div>
+						</div>
+						<div class="v-spacer">.</div>
+						<div id="watchlist" class="nav-drop nav-drop-4">
+							<button class="dropbtn">Watchlist
+								<i class="fa fa-caret-down"></i>
+							</button>
+							<div class="dropdown drop-4">
+								<h5>Watchlist</h5>
+							</div>
+						</div>
+						<div class="v-spacer">.</div>
+					</div> <!-- nav-drops -->
+
+					<button class="sign-in">Sign in</button>
+				</div> <!-- nav-btm -->
+
+			</div> <!-- navbar -->
+
+		</nav> <!-- nav -->
+
+		<!-- This contains some information before the user has sublitted a search -->
+		<div id="startup"></div>
+
+		<!-- This gets populated after the user has commited the search -->
+		<div id="results"></div>
+
+		<!-- The list of search results that pops up as soon as some results came back -->
+		<div id="realtime-search" class="realtime-search hidden"></div>
+
+		<footer>
+			<div class="footer-infos">
+				<div class="btm-mobile">
+					<h3>OMDb Everywhere!</h3>
+					<img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-example-preferred.png" alt="AppStore Logo">
+					<img src="https://play.google.com/intl/en_us/badges/images/badge_new.png" alt="Google Play logo">
+					<img src="" alt="">
+					<p>Find showtimes, watch trailers, browse photos, track your Watchlist and rate your favorite movies and TV shows on your phone or tablet!</p>
+				</div>
+				<div class="btm-socials">
+					<h3>Follow OMDb on</h3>
+					<a href="#"><i class="fab fa-facebook-f"></i></a>
+					<a href="#"><i class="fab fa-instagram"></i></a>
+					<a href="#"><i class="fab fa-twitch"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+					<a href="#"><i class="fab fa-youtube"></i></a>
+				</div>
+				<div class="btm-links">
+					<a href="#" target="_blank" rel="noopener noreferrer">Home</a>
+					<a href="#" target="_blank" rel="noopener noreferrer">Top Rated Movies</a>
+					<a href="#" target="_blank" rel="noopener noreferrer">Box Office</a>
+					<a href="#" target="_blank" rel="noopener noreferrer">Coming Soon</a>
+					<a href="#" target="_blank" rel="noopener noreferrer">Site Index</a>
+					<a href="#" target="_blank" rel="noopener noreferrer">In Theaters</a>
+				</div>
+			</div> <!-- footer-infos-->
+
+			<div class="copyrights">
+				<p>No Copyrights! Made as an exercise by <a href="http://github.com/dmilojkovic76">dmilojkovic76</a></p>
+				<p>All credits for API go to <a href="http://www.omdbapi.com/">OMDb API</a> licenced under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0.</a></p>
+				<p>This site is not endorsed by or affiliated with <a href="https://www.imdb.com/">IMDb.com</a> or <a href="http://www.omdbapi.com/">OMDb API.com</a>.</p>
+			</div>
+		</footer>
+	</div> <!-- main -->
+
+
+	<script src="app.js"></script>
+</body>
+</html>
